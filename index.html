@@ -7,9 +7,9 @@
 <body>
 	<form action="" method="GET">
 		Points (between 0 and 10):
-		<input type="range" name="points" min="0" max="10" id="points"><br>
+		<input type="range" name="points" min="0" max="10" step="1" id="points"><br>
 		Quantity (between 0 and 10):
-		<input type="number" name="quantity" min="0" max="10" id="quantity"><br>
+		<input type="number" name="quantity" min="0" max="10" step="1" id="quantity"><br>
 	</form>
 </body>
 
@@ -17,6 +17,13 @@
 	var points = document.getElementById("points");
 	var quantity = document.getElementById("quantity");
 
+	points.addEventListener("change", function () {
+		quantity.value = points.value;
+	});
+
+	quantity.addEventListener("change", function () {
+		points.value = quantity.value;
+	});
 	
 </script>
 </html>
